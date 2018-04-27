@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var alphabet = "abcdefghijklmnopqrstuvwxyz";
+        var randomString = "";
+        var stringLength = 6;
+
+        for (var i = 0; i < stringLength; i++) {
+            randomString += alphabet[Math.floor(Math.random() * alphabet.length)];
+        }
+        console.log(randomString);
+    </script>
+</body>
+
+</html>
