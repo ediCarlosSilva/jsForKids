@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Insult Generator</title>
+</head>
+
+<body>
+    <script>
+        var pickRandomWord = function(words) {
+            return words[Math.floor(Math.random() * words.length)];
+        }
+
+        var generateRandomInsult = function() {
+            var randomBodyParts = ["Face", "Nose", "Hair"];
+            var randomAdjectives = ["Smelly", "Boring", "Stupid"];
+            var randomWords = ["Fly", "Marmot", "Stick", "Monkey", "Rat"];
+
+            // une todas as strings aleatórias em uma frase.
+            var randomString = "Your " + pickRandomWord(randomBodyParts) + " is like a " + pickRandomWord(randomAdjectives) + " " + pickRandomWord(randomWords) + "!!!";
+
+            return randomString;
+        }
+
+        console.log(generateRandomInsult());
+    </script>
+</body>
+
+</html>
