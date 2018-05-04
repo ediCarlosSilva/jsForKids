@@ -1,0 +1,39 @@
+<!-- listing Your friends with jQuery (And Making Them Smell!)  -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>listing Your friends with jQuery (And Making Them Smell!)</title>
+</head>
+
+<body>
+    <h1>Hello Word!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        var myFamily = [
+            "Aline",
+            "Aquyles",
+            "Ulysses",
+            "Sophya"
+        ];
+
+        for (var i = 0; i < myFamily.length; i++) {
+            $("body").append("<p>" + myFamily[i] + "</p>");
+        }
+
+        $("h1").text("My Family:");
+
+        $("p").append(" smells!");
+
+        $("h1").fadeTo(2000, 0.5);
+        // var fadeTime;
+        // for (var j = 0; j < 5; j++) {
+        //     fadeTime = (j + 1) * 1000;
+        //     $("h1").fadeOut(fadeTime / 2).fadeIn(fadeTime / 2);
+        // }
+
+        // $("h1").fadeOut().delay(5000).fadeIn();
+    </script>
+</body>
+
+</html>

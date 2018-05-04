@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Are These Arrays the Same?</title>
+</head>
+
+<body>
+    <script>
+        // Are These Arrays the Same?
+        var areArraysSame = function(array1, array2) {
+            if (array1.length !== array2.length) {
+                return false;
+            }
+
+            for (var i = 0; i < array1.length; i++) {
+                if (array1[i] !== array2[i]) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
