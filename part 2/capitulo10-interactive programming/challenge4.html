@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>challenge 2</title>
+</head>
+
+<body>
+    <h1 id="heading">Hello world!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        // Create Your own Animation
+
+        var leftOffset = 0;
+        var topOffset = 0;
+        var direction = "right";
+        var speed = 55;
+        var clicks = 0;
+
+        var moveHeading = function(event) {
+
+            $("#heading").offset({
+                left: leftOffset,
+                top: topOffset
+            });
+
+            if (direction === "right") {
+                leftOffset++;
+                if (leftOffset === 200) {
+                    direction = "down";
+                }
+            } else if (direction === "down") {
+                topOffset++;
+                if (topOffset === 200) {
+                    direction = "left";
+                }
+            } else if (direction === "left") {
+                leftOffset--;
+                if (leftOffset === 0) {
+                    direction = "up";
+                }
+            } else if (direction === "up") {
+                topOffset--;
+                if (topOffset === 0) {
+                    direction = "right";
+                }
+            }
+        };
+
+        var intervalId = setInterval(moveHeading, speed);
+
+        $("#heading").click(function(event) {
+            clicks++;
+            $(this).text("Hello World! " + clicks);
+            speed -= 5;
+            clearInterval(intervalId);
+            intervalId = setInterval(moveHeading, speed);
+            if (clicks === 10) {
+                clicks = 0;
+                speed = 55;
+                $(this).text("You Win.");
+                clearInterval(intervalId);
+            }
+        });
+    </script>
+</body>
+
+</html>
