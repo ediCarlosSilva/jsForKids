@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>setinterval</title>
+</head>
+
+<body>
+    <script>
+        var counter = 1;
+
+        var printMessage = function() {
+            var name = prompt("Please enter your name");
+            console.log("your name is: " + name);
+        };
+
+        var intervalId = setInterval(printMessage, 1000);
+    </script>
+</body>
+
+</html>

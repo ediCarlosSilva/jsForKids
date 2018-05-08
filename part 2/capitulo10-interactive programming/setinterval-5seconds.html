@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>setinterval</title>
+</head>
+
+<body>
+    <script>
+        var counter = 5;
+
+        var printMessage = function() {
+            console.log("You have been staring at your console for " + counter + " seconds.");
+            counter += 5;
+        };
+
+        var intervalId = setInterval(printMessage, 5000);
+    </script>
+</body>
+
+</html>
