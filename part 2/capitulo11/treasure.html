@@ -11,6 +11,7 @@
     <img src="http://nostarch.com/images/treasuremap.png" alt="mapa do tesouro" id="map" width="400" height="400">
 
     <p id="distance"></p>
+    <p id="clicks-remaining"></p>
 
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
@@ -43,6 +44,8 @@
                 return "Cold";
             } else if (distance < 320) {
                 return "Really cold";
+            } else if (distance < 640) {
+                return "Really really cold - BRRRRRR";
             } else {
                 return "Freezing!";
             }
@@ -54,6 +57,7 @@
 
         // The Click Handler
         var clicks = 0;
+        var clickLimit = 10;
 
         // Create a random target location
         var target = {
@@ -62,11 +66,18 @@
         };
 
 
-
+        $("#clicks-remaining").text(clickLimit);
 
 
         $("#map").click(function(event) {
             clicks++;
+
+            if (clicks > clickLimit) {
+                alert("GAME OVER!");
+                return;
+            }
+
+            $("#clicks-remaining").text(clickLimit - clicks);
 
             // Get distance between click event and target
             var distance = getDistance(event, target);
@@ -81,6 +92,8 @@
             if (distance < 8) {
                 alert("Found the treasure in " + clicks + " clicks!");
             }
+
+
         });
     </script>
 </body>
