@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.lineWidth = 4;
+
+        var circle = function(x, y, radius, fillCircle) {
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+            ctx.stroke();
+
+            if (fillCircle) {
+                ctx.fill();
+            }
+        };
+
+        circle(100, 50, 30);
+
+        ctx.fillStyle = "Orange";
+        ctx.strokeStyle = "Orange";
+        circle(100, 52, 3, true);
+
+        ctx.strokeStyle = "Black";
+        ctx.fillStyle = "Black";
+        circle(90, 40, 3, true);
+        circle(110, 40, 3, true);
+        circle(100, 120, 40);
+
+        circle(100, 105, 3, true);
+        circle(100, 120, 3, true);
+        circle(100, 135, 3, true);
+    </script>
+</body>
+
+</html>
