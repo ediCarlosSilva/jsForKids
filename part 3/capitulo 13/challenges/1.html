@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge 1 - A Snowman-Drawing function</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+        var canvas = document.querySelector("#canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.lineWidth = 4;
+
+        var circle = function(x, y, radius, fillCircle) {
+
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+
+            if (fillCircle) {
+                ctx.fill();
+            } else {
+                ctx.stroke();
+            }
+        };
+
+        // x = 100
+        // y = 50
+        var drawSnowman = function(x, y) {
+            circle(x + 100, y + 50, 30);
+
+            ctx.fillStyle = "Orange";
+            ctx.strokeStyle = "Orange";
+            circle(x + 100, y + 52, 3, true);
+
+            ctx.strokeStyle = "Black";
+            ctx.fillStyle = "Black";
+            circle(x + 90, y + 40, 3, true);
+            circle(x + 110, y + 40, 3, true);
+            circle(x + 100, y + 120, 40);
+
+            circle(x + 100, y + 105, 3, true);
+            circle(x + 100, y + 120, 3, true);
+            circle(x + 100, y + 135, 3, true);
+        }
+
+        // drawSnowman(50, 20);
+    </script>
+</body>
+
+</html>
