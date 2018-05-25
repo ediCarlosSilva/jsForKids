@@ -50,14 +50,19 @@
         var width = canvas.width;
         var height = canvas.height;
 
-        var ball = new Ball();
+        var ballArray = [];
+        for (var i = 0; i < 10; i++) {
+            ballArray.push(new Ball());
+        }
 
         setInterval(function() {
             ctx.clearRect(0, 0, width, height);
 
-            ball.draw();
-            ball.move();
-            ball.checkCollision();
+            for (var i = 0; i < 10; i++) {
+                ballArray[i].draw();
+                ballArray[i].move();
+                ballArray[i].checkCollision();
+            }
 
             ctx.strokeRect(0, 0, width, height);
         }, 30);
