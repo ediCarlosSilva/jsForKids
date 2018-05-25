@@ -14,6 +14,7 @@
             this.y = 100;
             this.xSpeed = (Math.random() * 10) - 5;
             this.ySpeed = (Math.random() * 10) - 5;
+            this.color = pickRandomWord(colors);
         };
 
         var circle = function(x, y, radius, fillCircle) {
@@ -26,7 +27,12 @@
             }
         };
 
+        var pickRandomWord = function(words) {
+            return words[Math.floor(Math.random() * words.length)];
+        };
+
         Ball.prototype.draw = function() {
+            ctx.fillStyle = this.color;
             circle(this.x, this.y, 3, true);
         };
 
@@ -49,6 +55,8 @@
 
         var width = canvas.width;
         var height = canvas.height;
+
+        var colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple"];
 
         var balls = [];
         for (var i = 0; i < 10; i++) {
