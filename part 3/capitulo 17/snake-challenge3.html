@@ -151,7 +151,7 @@
             if (newHead.equal(apple.position)) {
                 score++;
                 animationTime -= 5;
-                apple.move();
+                apple.move(this.segments);
             } else {
                 this.segments.pop();
             }
@@ -203,10 +203,18 @@
         };
 
         // Move the apple to a new random location
-        Apple.prototype.move = function() {
+        Apple.prototype.move = function(occupiedBlocks) {
             var randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
             var randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
             this.position = new Block(randomCol, randomRow);
+
+            // Check to see if apple has been moved to a block currently occupied by the snake
+            for (var i = 0; i < occupiedBlocks; i++) {
+                if (this.position.equal(occupiedBlocks[i])) {
+                    this.move(occupiedBlocks); // Call the move method again
+                    return;
+                }
+            }
         };
 
         // Create the snake and apple objects
